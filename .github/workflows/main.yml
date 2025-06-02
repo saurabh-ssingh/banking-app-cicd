@@ -21,7 +21,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Build with Maven
-        run: mvn clean install
+        run: mvn clean install -Dspring.profiles.active=ci
 
       - name: Run tests
-        run: mvn test
+        run: mvn test -Dspring.profiles.active=ci
