@@ -9,8 +9,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/bank")
 public class BankController {
 
-    @Autowired
-    private BankService bankService;
+
+    private final BankService bankService;
+
+    BankController(BankService bankService){
+        this.bankService = bankService;
+    }
 
     @PostMapping("/credit/{accountId}")
     public ResponseEntity<String> credit(@PathVariable Long accountId, @RequestParam double amount) {
